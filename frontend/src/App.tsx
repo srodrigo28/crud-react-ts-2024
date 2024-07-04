@@ -1,4 +1,4 @@
-import { Categoria } from "./views/Categoria"
+import { Categoria } from "./views/Categoria/index"
 
 function App() {
   return (

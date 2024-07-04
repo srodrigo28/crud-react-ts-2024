@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-NameAppexemploApplication<artifact-appexemplo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.appexemplo.NameAppexemploApplication",
+            "projectName": "artifact-appexemplo",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
