@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+        <title>Home</title>
+    </head>
+    <body class="container w-auto">
+
+        <style>
+             @media (min-width: 400px) { body {  /* Small devices (Mobile Cell & tablets, 768px and up) */
+                background-color: #1c1c1c;} 
+                .card-container{
+                    width: 85%;
+                    margin: 0 auto;
+                }
+                .card-content{
+                    width: 100%;
+                }
+                .card-content .badge{
+                    width: 100px !important;
+                }
+            }
+            @media (min-width: 576px) { body {  /* Small devices (Mobile Cell & tablets, 768px and up) */
+                background-color: yellow;} 
+                .card-container{
+                    width: 85%;
+                    margin: 0 auto;
+                }
+                .card-content{
+                    width: 100%;
+                }
+            }
+            @media (min-width: 768px) {     /* Medium devices (tablets, 768px and up) */
+                body { background-color: green;}
+                .card-container{
+                    width: 75%;
+                    margin: 0 auto;
+                }
+            }
+            @media (min-width: 992px) {         /* Large devices (desktops, 992px and up) */
+                body { background-color: purple;}
+                .card-container{
+                    width: 65%;
+                    margin: 0 auto;
+                }
+                .card-content{
+                    width: 80%;
+                }
+            }
+            @media (min-width: 1200px) {         /* X-Large devices (large desktops, 1200px and up) */
+                body { background-color: gray;} 
+                .card-container{
+                    width: 60%;
+                    margin: 0 auto;
+                }
+                .card-content{
+                    width: 80%;
+                }
+            }
+            @media (min-width: 1400px) {        /* XX-Large devices (larger desktops, 1400px and up) */
+                body { 
+                    background-color: blue;
+                }
+                .card-container{
+                    width: 55%;
+                    margin: 0 auto;
+                }
+                .card-content{
+                    width: 80%;
+                }
+            }
+        </style>
+        <!--  Acessar end points -->
+        <div class="card card-container mt-3 p-3">
+            
+            <!--  Card Header -->
+            <div class="card-header bg-primary p-3">
+                <div class="card-content">
+                    <h1 class="mt-3 pb-3 text-white"><strong>Api Java Spring & Thymeleaf</strong></h1>
+                    <p class="text-center">
+                        <span class="badge bg-success p-2 w-25">Java 21 badge </span>
+                        <span class="badge bg-warning p-2 w-25">Spring 3.3.1</span>
+                        <span class="badge bg-info p-2 w-25">MySql 8</span>
+                    </p>
+                </div>
+            </div>
+
+            <!--  Card Body -->
+            <div class="card mb-5 mt-3 ">
+                <div class=" card-header bg-primary text-white"><strong>Rota Produto</strong></div>
+                
+                <!--Cadastrar-->
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <span class="badge bg-success">Cadastrar</span>
+                            <span class="badge bg-success">Method POST</span>
+                       </div>
+                        <div class="card-body">
+                            <p> 
+                                <span class="badge bg-success">Rota Cadastrar</span>
+                                <a href="#"> http://localhost:8080/produto </a>
+                            </p>
+                                <span class="badge bg-success">Body</span>
+                                <code>    
+                                    {
+                                        "nome": "Sony PS4 Pro dual controles",
+                                        "preco": 2.400,
+                                        "quantidade": 11
+                                    }
+                                </code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--Listar todos priamry-->
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <span class="badge bg-info">Listar Todos</span>
+                            <span class="badge bg-info">Method GET</span>
+                       </div>
+                        <div class="card-body">
+                            <p> 
+                                <span class="badge bg-info">Rota Listar</span>
+                                <a href="#"> http://localhost:8080/produto </a>
+                            </p>
+                                <span class="badge bg-info">JSON</span>
+                                <code>    
+                                    {
+                                        "name": "aline silva",
+                                        "sexo": "feminino"
+                                    }
+                                </code>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Listar Um primary -->
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <span class="badge bg-info">Listar Um</span>
+                            <span class="badge bg-info">Method Get</span>
+                       </div>
+                        <div class="card-body">
+                            <p> 
+                                <span class="badge bg-info">Rota Listar UM</span>
+                                <a href="#"> http://localhost:8080/produto{id} </a>
+                            </p>
+                                <span class="badge bg-info">JSON</span>
+                                <code>    
+                                    {
+                                        "id": 1,
+                                        "name": "aline silva",
+                                        "sexo": "feminino"
+                                    }
+                                </code>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Atualizar warning verificar-->
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <span class="badge bg-warning">Atualizar</span>
+                            <span class="badge bg-warning">Method Put</span>
+                       </div>
+                        <div class="card-body">
+                            <p> 
+                                <span class="badge bg-warning">Rota Listar</span>
+                                <a href="#"> http://localhost:8080/api/aluno/{id} </a>
+                            </p>
+                                <span class="badge bg-warning">Body</span>
+                                <code>    
+                                    {
+                                        "id": 1,
+                                        "name": "aline silva",
+                                        "sexo": "feminino"
+                                    }
+                                </code>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Deletar danger-->
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <span class="badge bg-danger">Apagar</span>
+                            <span class="badge bg-danger">Method Delete</span>
+                       </div>
+                        <div class="card-body">
+                            <p> 
+                                <span class="badge bg-danger">Rota Apagar</span>
+                                <a href="#"> http://localhost:8080/produto/1 </a>
+                            </p>
+                                <span class="badge bg-danger">JSON</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+</html>
