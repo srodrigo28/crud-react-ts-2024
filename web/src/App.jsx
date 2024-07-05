@@ -1,11 +1,10 @@
-import { Categoria } from './views/Categoria'
+// import { Menu } from "./templates/Menu"
+import { Layout } from "./templates/Layout"
 
 function App() {
 
   return (
-    <>
-     <Categoria />
-    </>
+    <Layout />
   )
 }
 
