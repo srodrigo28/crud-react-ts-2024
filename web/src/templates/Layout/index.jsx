@@ -7,7 +7,6 @@ export function Layout(props){
             <Menu />
             <div className="container mx-auto px-4 py-8">
                 {props.children}
-                <h3>Layout Hello</h3>
             </div>
         </div>
     )

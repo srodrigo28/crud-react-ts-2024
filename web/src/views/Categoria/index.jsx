@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import axios from "axios";
 import './categoria.css';
+import { Menu } from "../../templates/Menu";
 
 export function Categoria(){
     const url = "http://localhost:8080/categoria"
@@ -8,6 +9,7 @@ export function Categoria(){
     const [nome, setNome] =  useState('')
     const [data, setData] = useState([])
     const [error, setError] = useState()
+
     const [classBtnInserir, setClassBtnInserir] = useState('Inserir')
     const [classBtnShow, setclassBtnShow] = useState('sumir')
 
@@ -71,7 +73,7 @@ export function Categoria(){
     const Alterar = (e) =>{
         e.preventDefault()
         
-        const res = window.confirm('Deseja realmente voltar ? ' + nome)
+        const res = window.confirm('Deseja realmente Alterar ? ' + nome)
 
         if(res){
              // axios.put(url+`/${id}`, {
@@ -103,68 +105,77 @@ export function Categoria(){
     }
     
     return(
-        <div className="container">
+        <div className="flex">
+            <Menu />
+            <div className="container">
             
-            <div className="flex bg-blue-700 py-10 mt-3 mb-3 justify-center ">
-                <h1 className="text-white font-bold text-3xl">Cadastro de Categorias</h1>
-            </div>
-            
-           <form onSubmit={Inserir} className="mb-3 bg-zinc-300 py-3 p-3">
-            <div className="row mb-3">
+                <div className="flex bg-blue-700 py-10 mt-3 mb-3 justify-center ">
+                    <h1 className="text-white font-bold text-3xl">Cadastro de Categorias</h1>
+                </div>
                 
-                <div className="col col-2">
-                    <input 
-                        disabled
-                        type="text" 
-                        value={id}
-                        placeholder="Código"
-                        className="form-control text-center"
-                        onChange={ e => setId(e.target.value)}
-                    />
-                </div>
-                <div className="col">
-                    <input 
-                        type="text" 
-                        value={nome}
-                        placeholder="Nome"
-                        className="form-control"
-                        onChange={ e => setNome(e.target.value)}
-                    />
-                </div>
+            <form onSubmit={Inserir} className="mb-3 bg-zinc-300 py-3 p-3">
+                <div className="row mb-3">
+                    
+                    <div className="col col-2">
+                        <input 
+                            disabled
+                            type="text" 
+                            value={id}
+                            placeholder="Código"
+                            className="form-control text-center"
+                            onChange={ e => setId(e.target.value)}
+                        />
+                    </div>
+                    <div className="col">
+                        <input 
+                            type="text" 
+                            value={nome}
+                            placeholder="Nome"
+                            className="form-control"
+                            onChange={ e => setNome(e.target.value)}
+                        />
+                    </div>
 
-            </div>
-                <button className={`btn btn-success text-white ${classBtnInserir}`}>Inserir</button>
-                <button className={`btn btn-warning text-white mr-3 ${classBtnShow}`} onClick={ Alterar }>Alterar</button>
-                <button className={`btn btn-danger text-white ${classBtnShow}`} onClick={ Cancelar }>Cancelar</button>
-           </form>
+                </div>
+                    <button 
+                        className={`btn btn-success text-white ${classBtnInserir}`}
+                    >Inserir</button>
+                    <button 
+                        className={`btn btn-warning text-white mr-3 ${classBtnShow}`} onClick={ Alterar }
+                    >Alterar</button>
+                    <button 
+                        className={`btn btn-danger text-white ${classBtnShow}`} onClick={ Cancelar }
+                    >Cancelar</button>
+            </form>
 
-           <table className="table">
-                <thead className="">
-                    <tr  className="bg-zinc-900">
-                        <th scope="col">#</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { data.map((item) => (
-                        <tr key={item.id}>
-                            <td>{item.id}</td>
-                            <td className="w-75">{item.nome}</td>
-                            <td className="d-flex gap-2">
-                                <button className="btn btn-outline-warning" onClick={ () => CarregaCampos( item.id, item.nome ) }>
-                                    Alterar
-                                </button>
-                                <button className="btn btn-outline-danger" onClick={ () => Remover(item.id, item.nome)}>
-                                    Apagar
-                                </button>
-                            </td>
+            <table className="table">
+                    <thead className="">
+                        <tr  className="bg-zinc-900">
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Ações</th>
                         </tr>
-                    ))
-                    }
-                </tbody>
-           </table>
-            
+                    </thead>
+                    <tbody>
+                        { data.map((item) => (
+                            <tr key={item.id}>
+                                <td>{item.id}</td>
+                                <td className="w-75">{item.nome}</td>
+                                <td className="d-flex gap-2">
+                                    <button className="btn btn-outline-warning" onClick={ () => CarregaCampos( item.id, item.nome ) }>
+                                        Alterar
+                                    </button>
+                                    <button className="btn btn-outline-danger" onClick={ () => Remover(item.id, item.nome)}>
+                                        Apagar
+                                    </button>
+                                </td>
+                            </tr>
+                        ))
+                        }
+                    </tbody>
+            </table>
+                
+            </div>
         </div>
     )
 }

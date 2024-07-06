@@ -1,8 +1,20 @@
-# React + Vite
+### Crud Completo com React Typescript e Json-server
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Hooks
+  * useState()
+  * useEfect()
 
-Currently, two official plugins are available:
+#### Dependências
+  * axios
+  * bootstrap
+  * react-router-dom
+    ```
+    https://www.youtube.com/watch?v=3nHI27zO-yU
+    ```
+  * font-awesome
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  #### Base
+  ```
+  https://github.com/srodrigo28/react-crud-completo-2024.git
+  ```
+

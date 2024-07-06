@@ -1,10 +1,11 @@
-// import { Menu } from "./templates/Menu"
-import { Layout } from "./templates/Layout"
+// import { Layout } from "./templates/Layout"
+
+import Routes from "./services/routes"
 
 function App() {
 
   return (
-    <Layout />
+   <Routes />
   )
 }
 

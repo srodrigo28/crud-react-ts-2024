@@ -1,13 +1,6 @@
+import { Link } from "react-router-dom"
 
-function ItemMenu( props ){ // verificar não está usando
-    return(
-        <Link href={props.url} className="d-flex gap-3 px-3 py-3" >
-            <span className="text-zinc-200">{props.label}</span>
-        </Link>
-    )
-}
-
-export function Menu( props ){
+export function Menu(){
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-primary">
             <div className="container-fluid">
@@ -18,13 +11,19 @@ export function Menu( props ){
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link active text-white" aria-current="page" href="/views/categoria">Categorias</a>
+                            <Link to="categoria">
+                                <p className="nav-link active text-white" > Categorias</p>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active text-white" aria-current="page" href="#">Clientes</a>
+                            <Link to="cliente">
+                                <p className="nav-link active text-white"> Clientes</p>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link active text-white" aria-current="page" href="#">Produtos</a>
+                            <Link to="cliente">
+                                <p clpssName="nav-link active text-white"> Produtos</p>
+                            </Link>
                         </li>
                     </ul>
                 </div>
