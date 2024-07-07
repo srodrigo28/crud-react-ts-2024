@@ -27,22 +27,13 @@ export function Categoria(){
             alert("Precisa preencher o campo!")
             return false;
         }
-
-        e.preventDefault()
-        if(nome === ""){
-            setError("Preencha o campo")
-            alert(error)
-        }
-
         axios.post(url, {
             nome
-        })
-        .then( () => {
+        }).then( () => {
                 alert(nome + " Cadastrado com sucesso")
                 setNome('')
             }
-        )
-        .catch( (error) => {
+        ).catch( (error) => {
             console.log('erro: ' + error)
         })
     }
@@ -51,9 +42,8 @@ export function Categoria(){
     const Remover = ( id, nome ) => {
         console.log(nome)
         const res = window.confirm('Deseja realmente excluir? ' + nome)
-       
-        /** */
-        if(res === true){
+        
+        if(res){
             axios.delete(`${url}/${id}`)
             return false
         }
@@ -91,7 +81,6 @@ export function Categoria(){
             .catch( (error) => {
                 console.log('erro: ' + error)
             })
-
             return false
         } 
     }
@@ -113,42 +102,42 @@ export function Categoria(){
                     <h1 className="text-white font-bold text-3xl">Cadastro de Categorias</h1>
                 </div>
                 
-            <form onSubmit={Inserir} className="mb-3 bg-zinc-300 py-3 p-3">
-                <div className="row mb-3">
-                    
-                    <div className="col col-2">
-                        <input 
-                            disabled
-                            type="text" 
-                            value={id}
-                            placeholder="Código"
-                            className="form-control text-center"
-                            onChange={ e => setId(e.target.value)}
-                        />
-                    </div>
-                    <div className="col">
-                        <input 
-                            type="text" 
-                            value={nome}
-                            placeholder="Nome"
-                            className="form-control"
-                            onChange={ e => setNome(e.target.value)}
-                        />
-                    </div>
+                <form onSubmit={Inserir} className="mb-3 bg-zinc-300 py-3 p-3">
+                    <div className="row mb-3">
+                        
+                        <div className="col col-2">
+                            <input 
+                                disabled
+                                type="text" 
+                                value={id}
+                                placeholder="Código"
+                                className="form-control text-center"
+                                onChange={ e => setId(e.target.value)}
+                            />
+                        </div>
+                        <div className="col">
+                            <input 
+                                type="text" 
+                                value={nome}
+                                placeholder="Nome"
+                                className="form-control"
+                                onChange={ e => setNome(e.target.value)}
+                            />
+                        </div>
 
-                </div>
-                    <button 
-                        className={`btn btn-success text-white ${classBtnInserir}`}
-                    >Inserir</button>
-                    <button 
-                        className={`btn btn-warning text-white mr-3 ${classBtnShow}`} onClick={ Alterar }
-                    >Alterar</button>
-                    <button 
-                        className={`btn btn-danger text-white ${classBtnShow}`} onClick={ Cancelar }
-                    >Cancelar</button>
-            </form>
+                    </div>
+                        <button 
+                            className={`btn btn-success text-white ${classBtnInserir}`}
+                        >Inserir</button>
+                        <button 
+                            className={`btn btn-warning text-white mr-3 ${classBtnShow}`} onClick={ Alterar }
+                        >Alterar</button>
+                        <button 
+                            className={`btn btn-danger text-white ${classBtnShow}`} onClick={ Cancelar }
+                        >Cancelar</button>
+                </form>
 
-            <table className="table">
+                <table className="table">
                     <thead className="">
                         <tr  className="bg-zinc-900">
                             <th scope="col">#</th>
@@ -162,10 +151,16 @@ export function Categoria(){
                                 <td>{item.id}</td>
                                 <td className="w-75">{item.nome}</td>
                                 <td className="d-flex gap-2">
-                                    <button className="btn btn-outline-warning" onClick={ () => CarregaCampos( item.id, item.nome ) }>
+                                    <button 
+                                        className="btn btn-outline-warning" 
+                                        onClick={ () => CarregaCampos( item.id, item.nome ) }
+                                    >
                                         Alterar
                                     </button>
-                                    <button className="btn btn-outline-danger" onClick={ () => Remover(item.id, item.nome)}>
+                                    <button 
+                                        className="btn btn-outline-danger" 
+                                        onClick={ () => Remover(item.id, item.nome)}
+                                    >
                                         Apagar
                                     </button>
                                 </td>
@@ -173,8 +168,7 @@ export function Categoria(){
                         ))
                         }
                     </tbody>
-            </table>
-                
+                </table>
             </div>
         </div>
     )
